@@ -61,6 +61,12 @@ List* list_load_from_file(List* l,FILE* input_file)
     return l;
 }
 
+List* list_load_from_write(List* l,FILE* result_file)
+{
+    int buffer [10000];
+    fwrite(buffer,32767, sizeof(int ),result_file);
+}
+
 void list_print(List *l)
 {
     Node *current = l->head;
@@ -92,13 +98,6 @@ List* scroll_head(List *l)
     antesdelbefore->next = NULL;
 
     l->head = max_value;
-    //printf("%d\n",  l->head->value);
-    //printf("%d\n",  original_head->value);
-
-
-
-
-
 
     /*
     Node *max_value = l->head;

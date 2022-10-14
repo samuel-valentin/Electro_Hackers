@@ -28,14 +28,17 @@ int main(int argc, char *argv[]) {
     list_print(l);
 
     fclose(input_file);
-    FILE *result_file = fopen("..result.txt","w");
-    /*FILE *result_file = fopen(argv[1], "w");
 
+    FILE *result_file = fopen("../result.txt","w");
+    //FILE *result_file = fopen(argv[1], "w");
     if(result_file == NULL)
     {
         printf("No file valid to write");
         return -1;
-    }*/
+    }
+
+    list_load_from_write(l,result_file);
+    fclose(result_file);
 
     return 0;
 }

@@ -16,5 +16,6 @@ List *list_append(List *l, int value_to_add);
 void list_print(List *l);
 List* list_load_from_file(List* l,FILE* input_file);
 List *scroll_head(List *l);
+List *list_load_from_write(List *l,FILE* resul_file);
 
 #endif //ELECTRO_HACKERS_LIST_H
