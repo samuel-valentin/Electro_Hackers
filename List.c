@@ -49,29 +49,15 @@ List* list_append(List *l, int value_to_add)
 List* list_load_from_file(List* l,FILE* input_file)
 {
     int i = 0;
-    char buffer [1000];
+    char buffer [10000];
     l->head = malloc(sizeof(int ) * 255);
-
-    /*while(fgets(line, MAX_LINE_LENGTH, textfile)){
-        printf(line);
-    }*/
 
     while (fgets(buffer,32767,input_file) != NULL)
     {
         printf(buffer);
-        //l->head = malloc(sizeof(int ) * 255);
-        //strcpy(l->head,buffer);
-        //i++;
+        l->head = 
     }
 
-    /*while (fread(buffer, sizeof (int ),40000,input_file) <5)
-    {
-        //l->head->next = malloc(sizeof (int )*255);
-        //l->head->next = buffer[i];
-        l->head->value = buffer[i];
-        //l->head->next;
-        ++i;
-    }*/
     return l;
 }
 
