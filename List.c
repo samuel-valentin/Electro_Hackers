@@ -74,13 +74,51 @@ void list_print(List *l)
 
 List* scroll_head(List *l)
 {
-
     Node *max_value = l->head;
     Node *current_value = l->head;
-    while (current_value)
+    Node *original_head = l->head;
+    Node *antesdelbefore = NULL;
+    while (current_value->next)
     {
-        if (max_value->value < current_value->value)
-        max_value->value = current_value->value;
+        if (current_value->next->value > max_value->value )
+        {
+            max_value = current_value->next;
+            antesdelbefore = current_value;
+        }
         current_value = current_value->next;
     }
+
+    current_value->next = original_head;
+    antesdelbefore->next = NULL;
+
+    l->head = max_value;
+    //printf("%d\n",  l->head->value);
+    //printf("%d\n",  original_head->value);
+
+
+
+
+
+
+    /*
+    Node *max_value = l->head;
+    Node *current_value = l->head;
+    //Aqui recorremos toda la lista
+    while (current_value)
+    {
+        //Buscamos el valor mas grande de la lista
+        if (max_value->value < current_value->value)
+        {
+            //Aqui ya encontramos el valor mas grande
+            //Que hacemos?
+            while ()
+            {
+                current_value = current_value->next;
+                max_value->value = current_value->value;
+            }
+            //Terminamos
+        }
+        current_value = current_value->next;
+    }
+    */
 }

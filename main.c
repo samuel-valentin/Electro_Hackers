@@ -27,8 +27,8 @@ int main(int argc, char *argv[]) {
     scroll_head(l);
     list_print(l);
 
-    //fclose(textfile);
-    //FILE *result_file = fopen("..result.txt","wb");
+    fclose(input_file);
+    FILE *result_file = fopen("..result.txt","w");
     /*FILE *result_file = fopen(argv[1], "w");
 
     if(result_file == NULL)
