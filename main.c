@@ -23,8 +23,9 @@ int main(int argc, char *argv[]) {
 
     List* l = list_new();
     list_load_from_file(l, input_file);
-    //list_print(l);
-
+    list_print(l);
+    scroll_head(l);
+    list_print(l);
 
     //fclose(textfile);
     //FILE *result_file = fopen("..result.txt","wb");

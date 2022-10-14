@@ -50,14 +50,14 @@ List* list_load_from_file(List* l,FILE* input_file)
 {
     int i = 0;
     char buffer [10000];
-    l->head = malloc(sizeof(int ) * 255);
+    //l->head = malloc(sizeof(int ) * 255);
 
     while (fgets(buffer,32767,input_file) != NULL)
     {
-        printf(buffer);
-        l->head = 
+        i = atoi(buffer);  //Esto esta bien
+        //printf("%d\n",i+1);
+        list_append(l, i); //Esto ya quedo
     }
-
     return l;
 }
 
@@ -68,5 +68,19 @@ void list_print(List *l)
     {
         printf("[%d]->", current->value);
         current = current->next;
+    }
+    printf("\n");
+}
+
+List* scroll_head(List *l)
+{
+
+    Node *max_value = l->head;
+    Node *current_value = l->head;
+    while (current_value)
+    {
+        if (max_value->value < current_value->value)
+        max_value->value = current_value->value;
+        current_value = current_value->next;
     }
 }
