@@ -50,7 +50,6 @@ List* list_load_from_file(List* l,FILE* input_file)
 {
     int i = 0;
     char buffer [10000];
-    //l->head = malloc(sizeof(int ) * 255);
 
     while (fgets(buffer,32767,input_file) != NULL)
     {
@@ -63,8 +62,16 @@ List* list_load_from_file(List* l,FILE* input_file)
 
 List* list_load_from_write(List* l,FILE* result_file)
 {
-    int buffer [10000];
-    fwrite(buffer,32767, sizeof(int ),result_file);
+    Node *currrent = l->head;
+    char buffer[1000];
+
+    while (currrent)
+    {
+        sprintf(buffer,"%i",currrent->value);
+        fwrite(buffer, sizeof(currrent->value ),1,result_file);
+        currrent = currrent->next;
+    }
+
 }
 
 void list_print(List *l)

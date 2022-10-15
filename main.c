@@ -23,11 +23,12 @@ int main(int argc, char *argv[]) {
 
     List* l = list_new();
     list_load_from_file(l, input_file);
+    fclose(input_file);
     list_print(l);
     scroll_head(l);
     list_print(l);
 
-    fclose(input_file);
+
 
     FILE *result_file = fopen("../result.txt","w");
     //FILE *result_file = fopen(argv[1], "w");
